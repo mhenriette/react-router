@@ -1,10 +1,15 @@
 import './App.css'
-
+import About from './pages/About'
+import Home from './pages/Home'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 function App() {
   return (
-    <div className="App">
-      <div className='text-indigo-500'>React router</div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
