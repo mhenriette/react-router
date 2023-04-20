@@ -1,12 +1,12 @@
-import NavBar from "../components/layouts/NavBar";
+
 import moon from "../assets/moon.jpg"
 import { Heading1, Heading2, Heading4 } from "../components/ui/Typography";
-import Footer from "../components/layouts/Footer";
+
 import Button from "../components/ui/Button";
 
 const About = () => {
     return <div className="w-full flex flex-col min-h-screen justify-between">
-        <NavBar />
+
         <main className="flex-1 bg-[#FFF7ED] flex justify-center items-center flex-col">
             <div div className="w-full h-96" >
                 <img src={moon} className="object-cover h-full w-full object-center" />
@@ -36,7 +36,7 @@ const About = () => {
             </div>
 
         </main >
-        <Footer />
+
     </div >;
 };
 

@@ -1,11 +1,10 @@
 import Button from "../components/ui/Button";
-import NavBar from "../components/layouts/NavBar";
+
 import { Heading1, Heading4 } from "../components/ui/Typography";
-import Footer from "../components/layouts/Footer";
+
 
 const Home = () => {
     return <div className="bg-hero-pattern bg-no-repeat w-full bg-cover text-white h-screen flex flex-col">
-        <NavBar />
         <main className="flex-1 flex items-center justify-center p-4 bg-black bg-opacity-40">
             <div className="py-16 mx-auto text-center items-center flex flex-col">
                 <Heading1>You got the travel plans, we got the travel vans.</Heading1>
@@ -14,7 +13,6 @@ const Home = () => {
 
             </div>
         </main>
-        <Footer />
     </div>;
 };
 

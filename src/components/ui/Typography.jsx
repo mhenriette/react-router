@@ -6,7 +6,7 @@ export const Heading1 = ({ children, className }) => {
 
 export const Heading2 = ({ children, className }) => {
     return (
-        <h2 className={`font-bold sm:text-[32px] sm:leading-[38px] text-black  ${className}`}>{children}</h2>
+        <h2 className={`font-bold sm:text-[32px] sm:leading-[38px] text-black ${className}`}>{children}</h2>
     )
 }
 

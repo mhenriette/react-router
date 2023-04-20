@@ -9,7 +9,8 @@ const NavBar = () => {
         <div className="flex gap-3 items-center text-[#4D4D4D]">
 
             <Link to="about" className="hover:underline"> <Heading4 >About</Heading4></Link>
-            <Heading4 >Vans</Heading4>
+            <Link to="vans" className="hover:underline"> <Heading4 >Vans</Heading4></Link>
+
         </div>
     </div>;
 };
