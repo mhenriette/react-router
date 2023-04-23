@@ -13,7 +13,7 @@ const VansDetails = () => {
 
     }, [])
     console.log(details)
-    return <div className="w-full flex justify-center">
+    return <div className="w-full flex justify-center mb-20 lg:mb-0">
         {details ? <div className="md:w-1/2 px-10 md:px-0">
             <div className="w-full h-1/2 rounded-md overflow-hidden my-5">
                 <img src={details.imageUrl} className="w-full h-full" />
