@@ -6,7 +6,7 @@ const NavBar = () => {
         <Link to="/">
             <span className="font-black text-[26px] text-black leading-[43px]">#VANLIFE</span>
         </Link>
-        <div className="flex gap-3 items-center text-[#4D4D4D]">
+        <div className="flex gap-5 items-center text-[#4D4D4D]">
 
             <Link to="about" className="hover:underline"> <Heading4 >About</Heading4></Link>
             <Link to="vans" className="hover:underline"> <Heading4 >Vans</Heading4></Link>
