@@ -5,7 +5,7 @@ const VanCard = ({ name, price, type, imageUrl, id }) => {
     return (
         <Link to={`/vans/${id}`}>
             <div className="flex flex-col m-10 gap-3">
-                <div className="w- h-auto md:h-96 rounded-md overflow-hidden">s
+                <div className="w- h-auto md:h-96 rounded-md overflow-hidden">
                     <img
                         src={imageUrl}
                         alt={name}
