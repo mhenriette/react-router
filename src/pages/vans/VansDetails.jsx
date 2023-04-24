@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Heading1, Heading2, Heading4 } from "../components/ui/Typography";
-import Button from "../components/ui/Button";
+import { Heading1, Heading2, Heading4 } from "../../components/ui/Typography";
+import Button from "../../components/ui/Button";
 import { BsArrowLeft } from "react-icons/bs";
 
 const VansDetails = () => {
