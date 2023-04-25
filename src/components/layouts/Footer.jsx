@@ -11,7 +11,6 @@ const Footer = ({ className }) => {
       </div>
     </div>
   );
-  a;
 };
 
 export default Footer;

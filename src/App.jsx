@@ -9,6 +9,8 @@ import Dashboard from "./pages/host/Dashboard";
 import Income from "./pages/host/Income";
 import Reviews from "./pages/host/Reviews";
 import HostLayout from "./components/layouts/HostLayout";
+import VansList from "./pages/host/VansList";
+import VansDescription from "./pages/host/VansDescription";
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +23,8 @@ function App() {
           <Route path="host" element={<HostLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="income" element={<Income />} />
+            <Route path="vans" element={<VansList />} />
+            <Route path="vans/:id" element={<VansDescription />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
         </Route>

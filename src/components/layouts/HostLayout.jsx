@@ -3,13 +3,16 @@ import { Heading4 } from "../ui/Typography";
 const HostLayout = () => {
     return <div>
         <div className="flex gap-5 items-center justify-between text-[#4D4D4D] px-7 py-9 bg-[#FFF7ED]">
-            <NavLink to="/host" className={({ isActive }) => `hover:underline ${isActive && 'text-red-600'}`}>
+            <NavLink to="/host" end className={({ isActive }) => ` hover:text-gray-400 ${isActive && 'text-black'}`}>
                 <Heading4>Dashboard</Heading4>
             </NavLink>
-            <NavLink to="/host/income" className={({ isActive }) => isActive && 'text-red-600'}>
+            <NavLink to="/host/income" className={({ isActive }) => ` hover:text-gray-400 ${isActive && 'text-black'}`}>
                 <Heading4>Income</Heading4>
             </NavLink>
-            <NavLink to="/host/reviews" className="hover:underline">
+            <NavLink to="/host/vans" className={({ isActive }) => ` hover:text-gray-400 ${isActive && 'text-black'}`}>
+                <Heading4>Vans</Heading4>
+            </NavLink>
+            <NavLink to="/host/reviews" className={({ isActive }) => ` hover:text-gray-400 ${isActive && 'text-black'}`}>
                 <Heading4>Reviews</Heading4>
             </NavLink>
         </div>
