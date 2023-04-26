@@ -11,6 +11,9 @@ import Reviews from "./pages/host/Reviews";
 import HostLayout from "./components/layouts/HostLayout";
 import VansList from "./pages/host/VansList";
 import VansDescription from "./pages/host/VansDescription";
+import Details from "./pages/host/Details";
+import Pricing from "./pages/host/Pricing";
+import Photos from "./pages/host/Photos";
 function App() {
   return (
     <BrowserRouter>
@@ -24,7 +27,12 @@ function App() {
             <Route index element={<Dashboard />} />
             <Route path="income" element={<Income />} />
             <Route path="vans" element={<VansList />} />
-            <Route path="vans/:id" element={<VansDescription />} />
+            <Route path="vans/:id" element={<VansDescription />} >
+              <Route index element={<Details />} />
+              <Route path="pricing" element={<Pricing />} />
+              <Route path="photos" element={<Photos />} />
+            </Route>
+
             <Route path="reviews" element={<Reviews />} />
           </Route>
         </Route>

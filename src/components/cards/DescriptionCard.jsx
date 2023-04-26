@@ -1,9 +1,10 @@
+import { NavLink, Outlet } from "react-router-dom";
 import Button from "../ui/Button";
 import { Heading3, Heading4 } from "../ui/Typography";
 
-const DescriptionCard = ({ name, imageUrl, price, type, id, description }) => {
+const DescriptionCard = ({ name, imageUrl, price, type }) => {
     return (
-        <div className=" bg-white p-5 rounded-md ">
+        <div>
             <div className="flex gap-x-5 items-start">
                 <div className=" w-40 h-40 overflow-hidden rounded-md">
                     <img src={imageUrl} className="w-full h-full object-cover" />
@@ -19,23 +20,26 @@ const DescriptionCard = ({ name, imageUrl, price, type, id, description }) => {
                 </div>
             </div>
             <div className=" flex justify-between items-center py-2 font-bold ">
-                <p>details</p>
-                <p>details</p>
-                <p>details</p>
-            </div>
-            <div className="flex gap-y-2 py-2 flex-col">
-                <p>
-                    <span className="font-bold">Name:</span> {name}
-                </p>
-                <p>
-                    <span className="font-bold">Category:</span> {type}
-                </p>
-                <p>
-                    <span className="font-bold">Description:</span> {description}
-                </p>
-                <p>
-                    <span className="font-bold">Visibilty:{" "}</span>public
-                </p>
+                <NavLink
+                    to="."
+                    end
+                    className={({ isActive }) => (isActive ? "text-red-600" : null)}
+                >
+                    <Heading4>Details</Heading4>
+                </NavLink>
+                <NavLink
+                    to="pricing"
+                    className={({ isActive }) => (isActive ? "text-red-600" : null)}
+                >
+
+                    <Heading4>Pricing</Heading4>
+                </NavLink>
+                <NavLink
+                    to="photos"
+                    className={({ isActive }) => (isActive ? "text-red-600" : null)}
+                >
+                    <Heading4>Photos</Heading4>
+                </NavLink>
             </div>
         </div>
     );

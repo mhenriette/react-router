@@ -2,22 +2,27 @@ import { useEffect, useState } from "react";
 import Van from "../../components/cards/Van";
 import { Heading2, Heading3 } from "../../components/ui/Typography";
 
-
 const VansList = () => {
-    const [vansList, setVansList] = useState([])
-    useEffect(() => {
-        fetch('/api/host/vans')
-            .then(resp => resp.json())
-            .then(data => setVansList(data.vans))
-    }, [])
-    return <div className="bg-[#fff7ed] w-full text-center">
-        <Heading2>Your listed Vans</Heading2>
-        {vansList ? <div className="w-full justify-center flex-col items-center flex gap-y-5 py-5">
-            {
-                vansList.map(el => <Van {...el} key={el.id} />)
-            }
-        </div> : <Heading3>Loading....</Heading3>}
-    </div>;
+  const [vansList, setVansList] = useState([]);
+  useEffect(() => {
+    fetch("/api/host/vans")
+      .then((resp) => resp.json())
+      .then((data) => setVansList(data.vans));
+  }, []);
+  return (
+    <div className="bg-[#fff7ed] w-full text-center">
+      <Heading2>Your listed Vans</Heading2>
+      {vansList ? (
+        <div className="w-full justify-center flex-col items-center flex gap-y-5 py-5">
+          {vansList.map((el) => (
+            <Van {...el} key={el.id} />
+          ))}
+        </div>
+      ) : (
+        <Heading3>Loading....</Heading3>
+      )}
+    </div>
+  );
 };
 
 export default VansList;
