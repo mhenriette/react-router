@@ -1,4 +1,3 @@
-import React from "react";
 import { Heading3, Heading4 } from "../ui/Typography";
 import { Link, useParams } from "react-router-dom";
 
