@@ -8,7 +8,8 @@ const VansDescription = () => {
   useEffect(() => {
     fetch(`/api/host/vans/${param.id}`)
       .then((resp) => resp.json())
-      .then((data) => setDescription(data.vans));
+      .then((data) => setDescription(data.vans))
+      .catch((error) => console.log(error))
   }, []);
   if (!description) return <h1>Loading....</h1>;
   return (

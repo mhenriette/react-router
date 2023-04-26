@@ -1,8 +1,7 @@
 import { useOutletContext } from "react-router-dom";
 
 const Details = () => {
-  const { data } = useOutletContext();
-  const { name, type, description } = data;
+  const { data: { name, type, description } } = useOutletContext();
   return (
     <div className="flex gap-y-2 py-2 flex-col ">
       <p>
