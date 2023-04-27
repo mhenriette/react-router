@@ -1,8 +1,7 @@
 import moon from "../assets/moon.jpg";
 import { Heading1, Heading2, Heading4 } from "../components/ui/Typography";
-
 import Button from "../components/ui/Button";
-
+import { Link } from "react-router-dom";
 const About = () => {
   return (
     <div className="w-full flex flex-col min-h-screen justify-between">
@@ -37,7 +36,11 @@ const About = () => {
                 <Heading2>Your destination is waiting.</Heading2>
                 <Heading2 className="mt-3">Your van is ready.</Heading2>
               </div>
-              <Button className="bg-black text-white">Explore our vans</Button>
+              <Button className="bg-black text-white py-0 px-0">
+                <Link to="/vans" className="block px-6 py-3">
+                  Explore our vans
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
