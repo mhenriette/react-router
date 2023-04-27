@@ -16,7 +16,7 @@ const VansDescription = () => {
     <div className="p-10">
       <Link
         relative="path"
-        to=".."
+        to="/host/vans"
         className="text-lg text-[#201F1D] underline flex items-center my-5 gap-x-2 font-bold "
       >
         <BsArrowLeft className="w-8 h-12" /> back to all vans
