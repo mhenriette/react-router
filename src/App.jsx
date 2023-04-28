@@ -14,12 +14,14 @@ import VansDescription from "./pages/host/VansDescription";
 import Details from "./pages/host/Details";
 import Pricing from "./pages/host/Pricing";
 import Photos from "./pages/host/Photos";
+import NotFound from "./pages/NotFound";
 function App() {
   return (
     <BrowserRouter>
       <Routes >
         <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
+
           <Route path="about" element={<About />} />
           <Route path="vans" element={<Vans />} />
           <Route path="vans/:id" element={<VansDetails />} />
@@ -35,6 +37,8 @@ function App() {
 
             <Route path="reviews" element={<Reviews />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
+
         </Route>
 
       </Routes>

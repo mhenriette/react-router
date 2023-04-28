@@ -1,9 +1,15 @@
 import Button from "../ui/Button";
 import { Heading3 } from "../ui/Typography";
-import { Link } from "react-router-dom";
-const VanCard = ({ name, price, type, imageUrl, id }) => {
+import { Link, useLocation } from "react-router-dom";
+const VanCard = ({ name, price, type, imageUrl, id, searchParam, typeFilter }) => {
+  const location = useLocation()
+
   return (
-    <Link to={`/vans/${id}`}>
+    <Link to={id}
+      state={{ search: searchParam.toString(), type: { typeFilter } }}
+
+    >
+
       <div className="flex flex-col m-10 gap-3">
         <div className="w- h-auto md:h-96 rounded-md overflow-hidden">
           <img
