@@ -7,14 +7,13 @@ import { BsArrowLeft } from "react-icons/bs";
 const VansDetails = () => {
   const [details, setDetails] = useState("");
   const param = useParams();
-  const location = useLocation()
+  const location = useLocation();
   useEffect(() => {
     fetch(`/api/vans/${param.id}`)
       .then((resp) => resp.json())
       .then((data) => setDetails(data.vans));
   }, [param.id]);
-  const search = location.state?.search || ''
-  // console.log()
+  const search = location.state?.search || "";
   return (
     <div className="w-full flex justify-center mb-20 lg:mb-0">
       {details ? (
@@ -24,7 +23,8 @@ const VansDetails = () => {
             relative="path"
             className="text-lg text-[#201F1D] underline flex items-center my-5 gap-x-2 font-bold "
           >
-            <BsArrowLeft className="w-8 h-12" /> back to {search ? `${location.state?.type.typeFilter}` : 'all'} vans
+            <BsArrowLeft className="w-8 h-12" /> back to{" "}
+            {search ? `${location.state?.type.typeFilter}` : "all"} vans
           </Link>
           <div className="w-full h-1/2 rounded-md overflow-hidden my-5">
             <img src={details.imageUrl} className="w-full h-full" />
