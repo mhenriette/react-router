@@ -1,30 +1,14 @@
-import { useEffect, useState } from "react";
 import VanCard from "../../components/cards/VanCard";
 import { Heading2, Heading1 } from "../../components/ui/Typography";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLoaderData, useSearchParams } from "react-router-dom";
 import { getVans } from "../../api";
 import { BsArrowLeft } from "react-icons/bs";
 import Button from "../../components/ui/Button";
+export const loader = () => getVans();
 const Vans = () => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [searchParam, setSearchParam] = useSearchParams();
+  const apiData = useLoaderData();
 
-  useEffect(() => {
-    const getData = async () => {
-      setLoading(true);
-      try {
-        const response = await getVans();
-        setData(response);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    getData();
-  }, []);
   const typeFilter = searchParam.get("type");
 
   const getypeFilter = (type, value) =>
@@ -36,19 +20,6 @@ const Vans = () => {
       }
       return prevParams;
     });
-  if (loading)
-    return (
-      <div className="w-full flex justify-center items-center min-h-screen">
-        <Heading2> Page Loading...</Heading2>
-      </div>
-    );
-  if (error)
-    return (
-      <div className="w-full flex justify-center items-center min-h-screen">
-        <Heading2>{error.message}</Heading2>
-      </div>
-    );
-
   return (
     <div className="w-full text-center">
       <Heading1>Explore our Vans options</Heading1>
@@ -86,10 +57,10 @@ const Vans = () => {
           </Link>
         )}
       </div>
-      {data.length > 0 && (
+      {apiData.length > 0 && (
         <div className="grid md:grid-cols-2 lg:grid-cols-3">
           {typeFilter
-            ? data
+            ? apiData
                 .filter((el) => el.type === typeFilter)
                 .map((van) => (
                   <VanCard
@@ -99,7 +70,7 @@ const Vans = () => {
                     typeFilter={typeFilter}
                   />
                 ))
-            : data.map((van) => (
+            : apiData.map((van) => (
                 <VanCard
                   key={van.id}
                   {...van}
