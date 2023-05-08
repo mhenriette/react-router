@@ -1,22 +1,18 @@
-import { useEffect, useState } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 import { Heading1, Heading2, Heading4 } from "../../components/ui/Typography";
 import Button from "../../components/ui/Button";
 import { BsArrowLeft } from "react-icons/bs";
-
+import { getVans } from "../../api";
+export const loader = ({ params }) => {
+  return getVans(params.id)
+}
 const VansDetails = () => {
-  const [details, setDetails] = useState("");
-  const param = useParams();
   const location = useLocation();
-  useEffect(() => {
-    fetch(`/api/vans/${param.id}`)
-      .then((resp) => resp.json())
-      .then((data) => setDetails(data.vans));
-  }, [param.id]);
+  const details = useLoaderData()
   const search = location.state?.search || "";
   return (
     <div className="w-full flex justify-center mb-20 lg:mb-0">
-      {details ? (
+
         <div className="md:w-1/2 px-10 md:px-0">
           <Link
             to={`..?${search}`}
@@ -42,12 +38,7 @@ const VansDetails = () => {
           <Button className="bg-orange-600 text-white my-3">
             Book this van
           </Button>
-        </div>
-      ) : (
-        <div className="w-full flex justify-center items-center min-h-screen">
-          <Heading2>Loading...</Heading2>
-        </div>
-      )}
+      </div>
     </div>
   );
 };

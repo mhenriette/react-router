@@ -1,29 +1,21 @@
-import { useEffect, useState } from "react";
 import Van from "../../components/cards/Van";
-import { Heading2, Heading3 } from "../../components/ui/Typography";
-import { useSearchParams } from "react-router-dom";
+import { Heading2 } from "../../components/ui/Typography";
+import { useLoaderData } from "react-router-dom";
+import { getHost } from "../../api";
+export const loader = () => getHost()
 
 const VansList = () => {
-  const [vansList, setVansList] = useState([]);
-  useEffect(() => {
-    fetch("/api/host/vans")
-      .then((resp) => resp.json())
-      .then((data) => setVansList(data.vans))
-      .catch((error) => console.log(error));
-  }, []);
-
+  const vansList = useLoaderData()
   return (
     <div className="bg-[#fff7ed] w-full text-center">
       <Heading2>Your listed Vans</Heading2>
-      {vansList ? (
+
         <div className="w-full justify-center flex-col items-center flex gap-y-5 py-5">
           {vansList.map((van) => (
             <Van {...van} key={van.id} />
           ))}
         </div>
-      ) : (
-        <Heading3>Loading....</Heading3>
-      )}
+
     </div>
   );
 };
