@@ -2,7 +2,11 @@ import { Link, Outlet, useLoaderData } from "react-router-dom";
 import DescriptionCard from "../../components/cards/DescriptionCard";
 import { BsArrowLeft } from "react-icons/bs";
 import { getHost } from "../../api";
-export const loader = ({ params }) => getHost(params.id)
+import requireAuth from "../../../utils"
+export const loader = async ({ params }) => {
+  await requireAuth()
+  return getHost(params.id)
+}
 
 const VansDescription = () => {
   const description = useLoaderData()

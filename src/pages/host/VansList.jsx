@@ -2,7 +2,11 @@ import Van from "../../components/cards/Van";
 import { Heading2 } from "../../components/ui/Typography";
 import { useLoaderData } from "react-router-dom";
 import { getHost } from "../../api";
-export const loader = () => getHost()
+import requireAuth from "../../../utils"
+export const loader = async () => {
+  await requireAuth()
+  return getHost()
+}
 
 const VansList = () => {
   const vansList = useLoaderData()
