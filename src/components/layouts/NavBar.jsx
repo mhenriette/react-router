@@ -1,8 +1,10 @@
 import { Heading4 } from "../ui/Typography";
 import { NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg"
+import { MdCancel } from "react-icons/md"
 
 const NavBar = () => {
+  const logout = () => localStorage.removeItem("logged")
   return (
     <div className="flex justify-between items-center px-7 py-9 bg-[#FFF7ED]">
       <NavLink to="/">
@@ -47,6 +49,9 @@ const NavBar = () => {
         <NavLink to='login' >
           <CgProfile className="w-8 h-8 " />
         </NavLink>
+        <button onClick={logout} >
+          <MdCancel className="w-8 h-8" />
+        </button>
       </div>
     </div>
   );

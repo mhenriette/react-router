@@ -23,7 +23,7 @@ import Photos from "./pages/host/Photos";
 import NotFound from "./pages/NotFound";
 import { loader as vansLoader } from "./pages/vans/Vans";
 import ErrorPage from "./ErrorPage";
-import Login, { loader as loginLoader } from "./pages/Login";
+import Login, { loader as loginLoader, action as actionLoader } from "./pages/Login";
 import requireAuth from "../utils"
 // export const loader = () =>
 function App() {
@@ -32,7 +32,7 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="/login" element={<Login />} loader={loginLoader} />
+        <Route path="/login" element={<Login />} loader={loginLoader} action={actionLoader} />
         <Route
           path="vans"
           element={<Vans />}
