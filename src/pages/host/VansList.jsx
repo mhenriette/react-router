@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Van from "../../components/cards/Van";
 import { Heading2, Heading3 } from "../../components/ui/Typography";
+import { useSearchParams } from "react-router-dom";
 
 const VansList = () => {
   const [vansList, setVansList] = useState([]);
@@ -10,6 +11,7 @@ const VansList = () => {
       .then((data) => setVansList(data.vans))
       .catch((error) => console.log(error));
   }, []);
+
   return (
     <div className="bg-[#fff7ed] w-full text-center">
       <Heading2>Your listed Vans</Heading2>
