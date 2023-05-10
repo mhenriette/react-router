@@ -60,7 +60,7 @@ const Vans = () => {
       {apiData.length > 0 && (
         <div className="grid md:grid-cols-2 lg:grid-cols-3">
           {typeFilter
-            ? data
+            ? apiData
               .filter((van) => van.type === typeFilter)
                 .map((van) => (
                   <VanCard
