@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import VanCard from "../components/cards/VanCard";
-import { Heading2 } from "../components/ui/Typography";
+import VanCard from "../../components/cards/VanCard";
+import { Heading2 } from "../../components/ui/Typography";
 const Vans = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
