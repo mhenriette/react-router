@@ -90,7 +90,7 @@ const Vans = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3">
           {typeFilter
             ? data
-                .filter((el) => el.type === typeFilter)
+              .filter((van) => van.type === typeFilter)
                 .map((van) => (
                   <VanCard
                     key={van.id}
