@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Heading1 } from "./components/ui/Typography";
+import { Heading1 } from "../components/ui/Typography";
 import { useRouteError } from "react-router-dom";
 
 const ErrorPage = () => {

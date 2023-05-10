@@ -21,7 +21,7 @@ import Pricing from "./pages/host/Pricing";
 import Photos from "./pages/host/Photos";
 import NotFound from "./pages/NotFound";
 import { loader as vansLoader } from "./pages/vans/Vans";
-import ErrorPage from "./ErrorPage";
+import ErrorPage from "./pages/ErrorPage";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
