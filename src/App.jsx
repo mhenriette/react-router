@@ -29,7 +29,7 @@ import { loader as vansLoader } from "./pages/vans/Vans";
 import ErrorPage from "./ErrorPage";
 import Login, {
   loader as loginLoader,
-  action as actionLoader,
+  action as loginAction,
 } from "./pages/Login";
 import requireAuth from "../utils";
 function App() {
@@ -42,7 +42,7 @@ function App() {
           path="/login"
           element={<Login />}
           loader={loginLoader}
-          action={actionLoader}
+          action={loginAction}
         />
         <Route
           path="vans"
