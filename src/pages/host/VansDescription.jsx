@@ -2,14 +2,14 @@ import { Link, Outlet, useLoaderData } from "react-router-dom";
 import DescriptionCard from "../../components/cards/DescriptionCard";
 import { BsArrowLeft } from "react-icons/bs";
 import { getHost } from "../../api";
-import requireAuth from "../../../utils"
-export const loader = async ({ params }) => {
-  await requireAuth()
-  return getHost(params.id)
-}
+import requireAuth from "../../../utils";
+export const loader = async ({ params, request }) => {
+  await requireAuth(request);
+  return getHost(params.id);
+};
 
 const VansDescription = () => {
-  const description = useLoaderData()
+  const description = useLoaderData();
   return (
     <div className="p-10">
       <Link
