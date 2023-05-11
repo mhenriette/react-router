@@ -95,6 +95,7 @@ createServer({
     });
     this.get("/host/vans", (schema, request) => {
       return schema.vans.where({ hostId: "123" });
+      // return new Response(400, {}, { error: "Error fetching data" });
     });
 
     this.get("/host/vans/:id", (schema, request) => {
