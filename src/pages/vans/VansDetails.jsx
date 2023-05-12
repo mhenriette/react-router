@@ -2,9 +2,9 @@ import { Link, useLoaderData, useLocation } from "react-router-dom";
 import { Heading1, Heading2, Heading4 } from "../../components/ui/Typography";
 import Button from "../../components/ui/Button";
 import { BsArrowLeft } from "react-icons/bs";
-import { getVans } from "../../api";
+import { getVan } from "../../api";
 export const loader = ({ params }) => {
-  return getVans(params.id)
+  return getVan(params.id)
 }
 const VansDetails = () => {
   const location = useLocation();
