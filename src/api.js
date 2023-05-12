@@ -9,12 +9,12 @@ import {
   where,
 } from "firebase/firestore/lite";
 const firebaseConfig = {
-  apiKey: "AIzaSyADm6NZSnJVfLu5yJr-8x5xQVFVFyZG7vY",
-  authDomain: "vanlife-5df79.firebaseapp.com",
-  projectId: "vanlife-5df79",
-  storageBucket: "vanlife-5df79.appspot.com",
-  messagingSenderId: "222537086985",
-  appId: "1:222537086985:web:2c30dea5c14b3fb8c3e0d8",
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
