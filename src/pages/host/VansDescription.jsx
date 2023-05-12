@@ -1,7 +1,7 @@
 import { Link, Outlet, useLoaderData } from "react-router-dom";
 import DescriptionCard from "../../components/cards/DescriptionCard";
 import { BsArrowLeft } from "react-icons/bs";
-import { getHost, getVan } from "../../api";
+import { getVan } from "../../api";
 import requireAuth from "../../../utils";
 export const loader = async ({ params, request }) => {
   await requireAuth(request);
