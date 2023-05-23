@@ -60,7 +60,7 @@ const Login = () => {
             {navigate.state === "submitting" ? "Logging in" : "Log in"}
           </button>
         </Form>
-        <div>Don’t have an account? Create one now</div>
+              <div>Don’t have an account? <span className="font-bold text-[#FF8C38]"> Create one now</span></div>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import { MdCancel } from "react-icons/md"
 const NavBar = () => {
   const logout = () => localStorage.removeItem("logged")
   return (
-    <div className="flex justify-between items-center px-7 py-9 bg-[#FFF7ED]">
+    <div className="flex justify-between flex-col md:flex-row gap-y-3 md:gap-y-0 items-center px-7 py-3 md:py-9 bg-[#FFF7ED]">
       <NavLink to="/">
         <span className="font-black text-[26px] text-black leading-[43px]">
           #VANLIFE

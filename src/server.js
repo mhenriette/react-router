@@ -83,6 +83,7 @@ createServer({
 
   routes() {
     this.namespace = "api";
+    this.passthrough("https://firestore.googleapis.com/**");
 
     this.get("/vans", (schema, request) => {
       // return new Response(400, {}, { error: "Error fetching data" });
@@ -95,6 +96,7 @@ createServer({
     });
     this.get("/host/vans", (schema, request) => {
       return schema.vans.where({ hostId: "123" });
+      // return new Response(400, {}, { error: "Error fetching data" });
     });
 
     this.get("/host/vans/:id", (schema, request) => {

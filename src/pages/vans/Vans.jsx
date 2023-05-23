@@ -1,13 +1,14 @@
 import VanCard from "../../components/cards/VanCard";
-import { Heading2, Heading1 } from "../../components/ui/Typography";
-import { Link, useLoaderData, useSearchParams } from "react-router-dom";
+import { Heading1, Heading3 } from "../../components/ui/Typography";
+import { Link, useLoaderData, useSearchParams, defer, Await } from "react-router-dom";
 import { getVans } from "../../api";
 import { BsArrowLeft } from "react-icons/bs";
 import Button from "../../components/ui/Button";
-export const loader = () => getVans();
+import { Suspense } from "react";
+export const loader = () => defer({ apiData: getVans() });
 const Vans = () => {
   const [searchParam, setSearchParam] = useSearchParams();
-  const apiData = useLoaderData();
+  const vans = useLoaderData();
 
   const typeFilter = searchParam.get("type");
 
@@ -23,7 +24,12 @@ const Vans = () => {
   return (
     <div className="w-full text-center">
       <Heading1>Explore our Vans options</Heading1>
-      <div className="flex gap-5 items-center flex-wrap justify-center py-5">
+      <Suspense fallback={<div className="my-10"><Heading3>Loading vans...</Heading3></div>}>
+        <Await resolve={vans.apiData}>
+          {
+            vans => {
+              return (<>
+                <div className="flex gap-5 items-center flex-wrap justify-center py-5">
         <Button
           className={`${
             typeFilter === "simple" ? "bg-orange-500" : "bg-[#FFEAD0]"
@@ -57,10 +63,11 @@ const Vans = () => {
           </Link>
         )}
       </div>
-      {apiData.length > 0 && (
+
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3">
           {typeFilter
-            ? data
+                    ? vans
               .filter((van) => van.type === typeFilter)
                 .map((van) => (
                   <VanCard
@@ -70,7 +77,7 @@ const Vans = () => {
                     typeFilter={typeFilter}
                   />
                 ))
-            : apiData.map((van) => (
+                    : vans.map((van) => (
                 <VanCard
                   key={van.id}
                   {...van}
@@ -79,7 +86,16 @@ const Vans = () => {
                 />
               ))}
         </div>
-      )}
+              </>
+              )
+            }
+          }
+
+        </Await>
+      </Suspense>
+
+
+
     </div>
   );
 };

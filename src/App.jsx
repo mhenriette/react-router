@@ -55,7 +55,7 @@ function App() {
           element={<VansDetails />}
           loader={vansDetailLoader}
         />
-        <Route path="host" element={<HostLayout />}>
+        <Route path="host" element={<HostLayout />} errorElement={<ErrorPage />}>
           <Route
             index
             element={<Dashboard />}
