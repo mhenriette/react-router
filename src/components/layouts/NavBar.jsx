@@ -1,9 +1,12 @@
 import { Heading4 } from "../ui/Typography";
 import { NavLink } from "react-router-dom";
+import { CgProfile } from "react-icons/cg"
+import { MdCancel } from "react-icons/md"
 
 const NavBar = () => {
+  const logout = () => localStorage.removeItem("logged")
   return (
-    <div className="flex justify-between items-start px-7 py-9 bg-[#FFF7ED]">
+    <div className="flex justify-between items-center px-7 py-9 bg-[#FFF7ED]">
       <NavLink to="/">
         <span className="font-black text-[26px] text-black leading-[43px]">
           #VANLIFE
@@ -13,9 +16,9 @@ const NavBar = () => {
         <NavLink
           to="host"
           className={({ isActive }) =>
-            `hover:text-black ${
+            `hover:text-black  after:h-[3px] after:inline-block after:w-full ${
               isActive &&
-              "text-[#000000] after:h-[3px] after:inline-block after:bg-[#000000] after:w-full"
+            "text-[#000000] after:bg-[#000000] "
             }`
           }
         >
@@ -24,9 +27,9 @@ const NavBar = () => {
         <NavLink
           to="about"
           className={({ isActive }) =>
-            `hover:text-black ${
+            `hover:text-black after:h-[3px] after:inline-block after:w-full ${
               isActive &&
-              "text-[#000000] after:h-[3px] after:inline-block after:bg-[#000000] after:w-full"
+            "text-[#000000]  after:bg-[#000000] "
             }`
           }
         >
@@ -35,14 +38,20 @@ const NavBar = () => {
         <NavLink
           to="vans"
           className={({ isActive }) =>
-            `hover:text-black ${
+            `hover:text-black after:h-[3px] after:inline-block after:w-full ${
               isActive &&
-              "text-[#000000] after:h-[3px] after:inline-block after:bg-[#000000] after:w-full"
+            "text-[#000000]  after:bg-[#000000] "
             }`
           }
         >
           <Heading4>Vans</Heading4>
         </NavLink>
+        <NavLink to='login' >
+          <CgProfile className="w-8 h-8 " />
+        </NavLink>
+        <button onClick={logout} >
+          <MdCancel className="w-8 h-8" />
+        </button>
       </div>
     </div>
   );

@@ -1,17 +1,15 @@
-import { useEffect, useState } from "react";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Link, Outlet, useLoaderData } from "react-router-dom";
 import DescriptionCard from "../../components/cards/DescriptionCard";
 import { BsArrowLeft } from "react-icons/bs";
+import { getHost } from "../../api";
+import requireAuth from "../../../utils";
+export const loader = async ({ params, request }) => {
+  await requireAuth(request);
+  return getHost(params.id);
+};
+
 const VansDescription = () => {
-  const param = useParams();
-  const [description, setDescription] = useState(null);
-  useEffect(() => {
-    fetch(`/api/host/vans/${param.id}`)
-      .then((resp) => resp.json())
-      .then((data) => setDescription(data.vans))
-      .catch((error) => console.log(error))
-  }, []);
-  if (!description) return <h1>Loading....</h1>;
+  const description = useLoaderData();
   return (
     <div className="p-10">
       <Link
